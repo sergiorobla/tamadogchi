@@ -1,8 +1,10 @@
 "use strict";
 // ----PORCENTAJES DE LAS BARRAS----
 // ---PORCENTAJES DE TODAS LAS BARRAS---
+const barraPorcentaje = document.querySelectorAll(".barraPorcentaje");
 const porcentajes = document.querySelectorAll(".porcentaje");
 // ---PORCENTAJE DE LA BARRA DEL PERRO---
+const barraPorcentajePerro = document.querySelector(".barraPorcentajePerro");
 const porcentajePerro = document.querySelector(".porcentajePerro");
 // ---NUMERO DEL PORCENTAJE DE LA PARTE SUPERIOR---
 const numerosPorcentaje = document.querySelectorAll(".numeroPorcentaje");
@@ -13,6 +15,8 @@ const aumentarAnchoBotones = document.querySelectorAll(".aumentar");
 // ---IMAGEN DEL PERRO---
 const imagenPerro = document.getElementById("imagenPerro");
 const imagenPerroKill = document.getElementById("imagenPerroKill");
+// ---IMAGEN DE REVIVIR---
+const revivir = document.querySelector(".revivir");
 // Variable para controlar si se está haciendo clic en un botón de aumento de porcentaje
 let clickActivo = false;
 // ----FUNCIONES----
@@ -48,7 +52,7 @@ function disminuirAnchoPerro() {
     if (anchoActual > 0 && !clickActivo) {
         anchoActual -= 1;
         porcentajePerro.style.width = anchoActual + "%";
-        numerPorcentajePerro.innerHTML = anchoActual + "%"; // Actualiza el contenido con el nuevo porcentaje
+        numerPorcentajePerro.innerHTML = anchoActual + "%";
         if (anchoActual <= 50 && anchoActual > 25) {
             porcentajePerro.style.backgroundColor = "orange";
         }
@@ -59,8 +63,21 @@ function disminuirAnchoPerro() {
             porcentajePerro.style.backgroundColor = "green";
         }
         if (anchoActual === 0) {
-            imagenPerro.style.display = "none"; // Oculta la imagen del perro original
-            imagenPerroKill.style.display = "block"; // Muestra la imagen del perro kill
+            imagenPerro.style.display = "none";
+            imagenPerroKill.style.display = "block";
+            if (barraPorcentajePerro !== null) {
+                barraPorcentajePerro.style.display = "none";
+            }
+            barraPorcentaje.forEach((elemento) => {
+                elemento.style.display = "none";
+            });
+            numerosPorcentaje.forEach((elemento) => {
+                elemento.style.display = "none";
+            });
+            numerPorcentajePerro.style.display = "none";
+            if (revivir !== null) {
+                revivir.style.display = "block";
+            }
         }
     }
 }
@@ -73,11 +90,9 @@ aumentarAnchoBotones.forEach((boton) => {
         if (anchoActual < 100) {
             anchoActual += 5;
             porcentaje.style.width = Math.min(anchoActual, 100) + "%";
-            // Aumentar también el porcentaje del perro
-            const numerPorcentajePerro = document.querySelector(".numeroPorcentajePerro");
             let anchoActualPerro = parseInt(porcentajePerro.style.width) || 0;
             if (anchoActualPerro < 100) {
-                anchoActualPerro += 5;
+                anchoActualPerro += 1;
                 porcentajePerro.style.width = Math.min(anchoActualPerro, 100) + "%";
                 numerPorcentajePerro.innerHTML = Math.min(anchoActualPerro, 100) + "%";
                 if (anchoActualPerro <= 50 && anchoActualPerro > 25) {
