@@ -67,7 +67,7 @@ function disminuirAnchoPerro() {
   ) as HTMLElement;
   let anchoActual = parseInt(porcentajePerro.style.width) || 100;
   if (anchoActual > 0 && !clickActivo) {
-    anchoActual -= 1;
+    anchoActual -= 2;
     porcentajePerro.style.width = anchoActual + "%";
     numerPorcentajePerro.innerHTML = anchoActual + "%";
     if (anchoActual <= 50 && anchoActual > 25) {
@@ -77,7 +77,7 @@ function disminuirAnchoPerro() {
     } else {
       porcentajePerro.style.backgroundColor = "green";
     }
-    if (anchoActual === 0) {
+    if (anchoActual <= 0) {
       imagenPerro.style.display = "none";
       imagenPerroKill.style.display = "block";
       if (barraPorcentajePerro !== null) {
