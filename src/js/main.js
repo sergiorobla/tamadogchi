@@ -104,7 +104,7 @@ aumentarAnchoBotones.forEach((boton) => {
             porcentaje.style.width = Math.min(anchoActual, 100) + "%";
             let anchoActualPerro = parseInt(porcentajePerro.style.width) || 0;
             if (anchoActualPerro < 100) {
-                anchoActualPerro += 1;
+                anchoActualPerro += Math.floor(Math.random() * 5);
                 porcentajePerro.style.width = Math.min(anchoActualPerro, 100) + "%";
                 numerPorcentajePerro.innerHTML = Math.min(anchoActualPerro, 100) + "%";
                 if (anchoActualPerro <= 50 && anchoActualPerro > 25) {
