@@ -16,11 +16,13 @@ body {
 
 .eat,
 .play {
+  margin-top: -30px;
   padding-top: 40px;
 }
 
 .exercise,
 .sleep {
+  margin-top: -50px;
   padding-top: 150px;
 }
 
@@ -106,6 +108,7 @@ body {
 }
 
 .revivir {
+  margin-top: -40px;
   display: none;
   text-align: center;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -119,6 +122,7 @@ body {
   border: none;
   width: 100px;
   margin-bottom: -20px;
+  margin-top: -20px;
   cursor: pointer;
 }
 
@@ -198,4 +202,13 @@ body {
 .sleep img {
   width: 80px;
   height: 80px;
+}
+
+@media (width < 650px) {
+  .perro img {
+    width: 150px;
+  }
+  .perro h1 {
+    font-size: 20px;
+  }
 }/*# sourceMappingURL=style.css.map */

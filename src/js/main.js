@@ -1,22 +1,28 @@
 "use strict";
 // ----PORCENTAJES DE LAS BARRAS----
-// ---PORCENTAJES DE TODAS LAS BARRAS---
+// ---TODAS LAS BARRAS DE PORCENTAJES---
 const barraPorcentaje = document.querySelectorAll(".barraPorcentaje");
-const porcentajes = document.querySelectorAll(".porcentaje");
-// ---PORCENTAJE DE LA BARRA DEL PERRO---
+// ------------------------------
 const barraPorcentajePerro = document.querySelector(".barraPorcentajePerro");
+// ---TODOS LOS PORCENTAJES---
+const porcentajes = document.querySelectorAll(".porcentaje");
+// ------------------------------
 const porcentajePerro = document.querySelector(".porcentajePerro");
-// ---NUMERO DEL PORCENTAJE DE LA PARTE SUPERIOR---
+// ---TODOS LOS NUMEROS DE PORCENTAJES ---
 const numerosPorcentaje = document.querySelectorAll(".numeroPorcentaje");
-// ---NUMERO DEL PORCENTAJE DEL PERRO---
+// ------------------------------
 const numerPorcentajePerro = document.querySelector(".numeroPorcentajePerro");
-// ---BOTONES PARA AUMENTAR EL PORCENTAJE---
+// ---TODOS LOS BOTONES PARA AUMENTAR EL PORCENTAJE---
 const aumentarAnchoBotones = document.querySelectorAll(".aumentar");
 // ---IMAGEN DEL PERRO---
 const imagenPerro = document.getElementById("imagenPerro");
+// ------------------------------
 const imagenPerroKill = document.getElementById("imagenPerroKill");
 // ---IMAGEN DE REVIVIR---
 const revivir = document.querySelector(".revivir");
+// ---TODOS LOS H1 DE LA PAGINA---
+const titulos = document.getElementsByTagName("h1");
+const titulosArray = Array.from(titulos);
 // Variable para controlar si se está haciendo clic en un botón de aumento de porcentaje
 let clickActivo = false;
 // ----FUNCIONES----
@@ -78,6 +84,12 @@ function disminuirAnchoPerro() {
             if (revivir !== null) {
                 revivir.style.display = "block";
             }
+            aumentarAnchoBotones.forEach((elemento) => {
+                elemento.style.display = "none";
+            });
+            titulosArray.forEach((elemento) => {
+                elemento.style.display = "none";
+            });
         }
     }
 }

@@ -1,37 +1,43 @@
 // ----PORCENTAJES DE LAS BARRAS----
-// ---PORCENTAJES DE TODAS LAS BARRAS---
+// ---TODAS LAS BARRAS DE PORCENTAJES---
 const barraPorcentaje = document.querySelectorAll(
   ".barraPorcentaje"
 ) as NodeListOf<HTMLElement>;
-const porcentajes = document.querySelectorAll(
-  ".porcentaje"
-) as NodeListOf<HTMLElement>;
-// ---PORCENTAJE DE LA BARRA DEL PERRO---
+// ------------------------------
 const barraPorcentajePerro: HTMLElement | null = document.querySelector(
   ".barraPorcentajePerro"
 );
+// ---TODOS LOS PORCENTAJES---
+const porcentajes = document.querySelectorAll(
+  ".porcentaje"
+) as NodeListOf<HTMLElement>;
+// ------------------------------
 const porcentajePerro = document.querySelector(
   ".porcentajePerro"
 ) as HTMLElement;
-// ---NUMERO DEL PORCENTAJE DE LA PARTE SUPERIOR---
+// ---TODOS LOS NUMEROS DE PORCENTAJES ---
 const numerosPorcentaje = document.querySelectorAll(
   ".numeroPorcentaje"
 ) as NodeListOf<HTMLElement>;
-// ---NUMERO DEL PORCENTAJE DEL PERRO---
+// ------------------------------
 const numerPorcentajePerro = document.querySelector(
   ".numeroPorcentajePerro"
 ) as HTMLElement;
-// ---BOTONES PARA AUMENTAR EL PORCENTAJE---
+// ---TODOS LOS BOTONES PARA AUMENTAR EL PORCENTAJE---
 const aumentarAnchoBotones = document.querySelectorAll(
   ".aumentar"
 ) as NodeListOf<HTMLImageElement>;
 // ---IMAGEN DEL PERRO---
 const imagenPerro = document.getElementById("imagenPerro") as HTMLImageElement;
+// ------------------------------
 const imagenPerroKill = document.getElementById(
   "imagenPerroKill"
 ) as HTMLImageElement;
 // ---IMAGEN DE REVIVIR---
 const revivir: HTMLElement | null = document.querySelector(".revivir");
+// ---TODOS LOS H1 DE LA PAGINA---
+const titulos = document.getElementsByTagName("h1");
+const titulosArray = Array.from(titulos);
 // Variable para controlar si se está haciendo clic en un botón de aumento de porcentaje
 let clickActivo = false;
 
@@ -93,6 +99,12 @@ function disminuirAnchoPerro() {
       if (revivir !== null) {
         revivir.style.display = "block";
       }
+      aumentarAnchoBotones.forEach((elemento: HTMLElement) => {
+        elemento.style.display = "none";
+      });
+      titulosArray.forEach((elemento: HTMLElement) => {
+        elemento.style.display = "none";
+      });
     }
   }
 }
