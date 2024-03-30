@@ -22,7 +22,8 @@ aumentarAnchoBotones.forEach((boton, index) => {
     boton.addEventListener("click", function () {
         const porcentaje = boton.parentElement?.querySelector(".porcentaje");
         let anchoActual = parseInt(porcentaje.style.width) || 100;
-        if (anchoActual < 100) { // Solo si el ancho actual es menor que 100, aumentamos el ancho
+        if (anchoActual < 100) {
+            // Solo si el ancho actual es menor que 100, aumentamos el ancho
             anchoActual += 5;
         }
         else {
@@ -32,3 +33,16 @@ aumentarAnchoBotones.forEach((boton, index) => {
         numerosPorcentaje[index].innerHTML = anchoActual + "%";
     });
 });
+const imagenPerro = document.getElementById("imagenPerro");
+if (imagenPerro) {
+    const srcOriginal = imagenPerro.getAttribute("original");
+    const srcCambiada = imagenPerro.getAttribute("cambiada");
+    if (srcOriginal && srcCambiada) {
+        imagenPerro.addEventListener("click", function () {
+            imagenPerro.setAttribute("src", srcCambiada);
+            setTimeout(function () {
+                imagenPerro.setAttribute("src", srcOriginal);
+            }, 500);
+        });
+    }
+}
