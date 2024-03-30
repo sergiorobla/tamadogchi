@@ -33,6 +33,10 @@ const imagenPerro = document.getElementById("imagenPerro") as HTMLImageElement;
 const imagenPerroKill = document.getElementById(
   "imagenPerroKill"
 ) as HTMLImageElement;
+// ------------------------------
+const sonidoPerro: HTMLMediaElement | null = document.getElementById(
+  "sonidoPerro"
+) as HTMLMediaElement;
 // ---IMAGEN DE REVIVIR---
 const revivir: HTMLElement | null = document.querySelector(".revivir");
 // ---TODOS LOS H1 DE LA PAGINA---
@@ -42,6 +46,18 @@ const titulosArray = Array.from(titulos);
 let clickActivo = false;
 
 // ----FUNCIONES----
+// ---FUNCION PARA EL SONIDO---
+function sonido() {
+  if (
+    sonidoPerro !== null &&
+    sonidoPerro instanceof HTMLElement &&
+    sonidoPerro.play
+  ) {
+    sonidoPerro.play();
+  } else {
+    console.error("No se pudo reproducir el sonido del perro.");
+  }
+}
 // ---FUNCION PARA DISMINUIR EL ANCHO DE LAS BARRAS GENERALES---
 function disminuirAncho() {
   let todosEnCero = true;
@@ -151,6 +167,7 @@ if (imagenPerro) {
     imagenPerro.addEventListener("click", function () {
       setTimeout(function () {
         imagenPerro.setAttribute("src", srcCambiada);
+        sonido();
         setTimeout(function () {
           imagenPerro.setAttribute("src", srcOriginal);
         }, 400);

@@ -18,6 +18,8 @@ const aumentarAnchoBotones = document.querySelectorAll(".aumentar");
 const imagenPerro = document.getElementById("imagenPerro");
 // ------------------------------
 const imagenPerroKill = document.getElementById("imagenPerroKill");
+// ------------------------------
+const sonidoPerro = document.getElementById("sonidoPerro");
 // ---IMAGEN DE REVIVIR---
 const revivir = document.querySelector(".revivir");
 // ---TODOS LOS H1 DE LA PAGINA---
@@ -26,6 +28,17 @@ const titulosArray = Array.from(titulos);
 // Variable para controlar si se está haciendo clic en un botón de aumento de porcentaje
 let clickActivo = false;
 // ----FUNCIONES----
+// ---FUNCION PARA EL SONIDO---
+function sonido() {
+    if (sonidoPerro !== null &&
+        sonidoPerro instanceof HTMLElement &&
+        sonidoPerro.play) {
+        sonidoPerro.play();
+    }
+    else {
+        console.error("No se pudo reproducir el sonido del perro.");
+    }
+}
 // ---FUNCION PARA DISMINUIR EL ANCHO DE LAS BARRAS GENERALES---
 function disminuirAncho() {
     let todosEnCero = true;
@@ -132,6 +145,7 @@ if (imagenPerro) {
         imagenPerro.addEventListener("click", function () {
             setTimeout(function () {
                 imagenPerro.setAttribute("src", srcCambiada);
+                sonido();
                 setTimeout(function () {
                     imagenPerro.setAttribute("src", srcOriginal);
                 }, 400);
